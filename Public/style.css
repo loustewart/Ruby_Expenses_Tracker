@@ -1,0 +1,15 @@
+black #000000 (0,0,0)
+white #FFFFFF (255,255,255)
+teal #00A19A (0,161,154)
+
+
+
+h1 { font-family: 'Baskerville'; font-size: 24px; font-style: normal; font-variant: normal; font-weight: 700; line-height: 26.4px; }
+
+h2 {
+  font-family:'Avenir Light'; font-size: 20px; font-style: normal; font-variant: normal; font-weight: bold;
+}
+
+Body {
+  font-family:'Avenir Light'; font-size: 12px; font-style: normal; font-variant: normal;, font-weight: normal;
+}
