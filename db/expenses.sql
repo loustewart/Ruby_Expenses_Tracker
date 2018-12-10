@@ -5,7 +5,7 @@ DROP TABLE categories;
 CREATE TABLE merchants
 (
   id SERIAL primary key,
-  name VARCHAR(255) not null,
+  name VARCHAR(255),
   phone VARCHAR(255),
   email VARCHAR(255)
 );
@@ -13,7 +13,7 @@ CREATE TABLE merchants
 CREATE TABLE categories
 (
   id SERIAL primary key,
-  type VARCHAR(255) not null
+  type VARCHAR(255)
 );
 
 CREATE TABLE transactions

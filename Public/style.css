@@ -1,10 +1,17 @@
-black #000000 (0,0,0)
-white #FFFFFF (255,255,255)
-teal #00A19A (0,161,154)
 
 
 
-h1 { font-family: 'Baskerville'; font-size: 24px; font-style: normal; font-variant: normal; font-weight: 700; line-height: 26.4px; }
+
+
+h1 { font-family: 'Baskerville';
+  font-size: 24px;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: 700;
+  line-height: 26.4px;
+  color: rgb(0,161,154)}
+
+
 
 h2 {
   font-family:'Avenir Light'; font-size: 20px; font-style: normal; font-variant: normal; font-weight: bold;
@@ -13,3 +20,48 @@ h2 {
 Body {
   font-family:'Avenir Light'; font-size: 12px; font-style: normal; font-variant: normal;, font-weight: normal;
 }
+
+
+.Header{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+
+}
+
+.container{
+  font-family:'Avenir Light';
+  font-size: 16px;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+
+.button {
+    display: block;
+    width: 115px;
+    height: 40px;
+    background: rgb(0,161,154);
+    padding: 10px;
+    text-align: center;
+    border-radius: 5px;
+    font-family:'Avenir Light';
+    font-size: 18px;
+    font-style: normal;
+    font-variant: normal;,
+    font-weight: normal;
+    color: white;
+    text-decoration: none;
+}
+
+.flex-container {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+}
+
+
+/* img {
+  position: absolute;
+} */

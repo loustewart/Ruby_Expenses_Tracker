@@ -1,1 +1,8 @@
-<h1>Header</h1>
+<h1>Categories</h1>
+
+
+<% for category in @categories %>
+  <p>ID: <%= category.id %></p>
+  <p>Type: <%= category.type %></p>
+  <hr />
+<% end %>

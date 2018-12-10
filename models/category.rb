@@ -41,19 +41,17 @@ attr_accessor :type
 
   def self.all()
     sql = "SELECT * FROM categories"
-    values = []
-    categories = SqlRunner.run(sql, values)
+    categories = SqlRunner.run(sql)
     result = categories.map { |category| Category.new(category) }
     return result
   end
 
-  def find_by_id()
+  def self.find(id)
     sql = "SELECT * FROM categories WHERE id = $1"
-    values = ['id']
+    values = [id]
     result = SqlRunner.run(sql, values)
-    category_hash = results.first
-    category = SqlRunner.run(category_hash)
-    return category
+    category_hash = result.first
+    return Category.new(category_hash)
   end
 
 
@@ -62,8 +60,7 @@ attr_accessor :type
     values = ['type']
     result = SqlRunner.run(sql, values)
     type_hash = results.first
-    type = SqlRunner.run(type_hash)
-    return category
+    return Category.new(type_hash)
   end
 
 end
