@@ -32,7 +32,7 @@ attr_accessor :name, :phone, :email
   end
 
   def delete()
-    sql = "DELETE FORM merchants WHERE id = $1"
+    sql = "DELETE FROM merchants WHERE id = $1"
     values = [@id]
     SqlRunner.run(sql, values)
   end

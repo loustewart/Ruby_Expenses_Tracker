@@ -4,9 +4,10 @@ require_relative('../models/transaction.rb')
 
 require('pry')
 
-# Category.delete_all()
-# Merchant.delete_all()
 Transaction.delete_all()
+Category.delete_all()
+Merchant.delete_all()
+
 
 
 utilities = Category.new({

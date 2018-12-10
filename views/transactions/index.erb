@@ -1,0 +1,28 @@
+<h1>Expenses</h1>
+
+<p class="btn--wrapper">
+  <a class="btn btn--action" href="/transactions/new">New entry</a>
+</p>
+
+    <% total = 0 %>
+    <% for transaction in @transactions %>
+    <% total += transaction.value %>
+    <%end%>
+<p> Total Expenses: <%= total %></p>
+
+
+<ul>
+  <% for transaction in @transactions %>
+  <li>
+    <p>Expense ID: <%= transaction.id %> </p>
+    <p>Merchant: <%= transaction.merchant.name %> </p>
+    <p>Category: <%= transaction. category.type %> </p>
+    <p>Value: <%= transaction.value %></p>
+<p>
+      <form expense="/transactions/<%= transaction.id %>/delete" method="POST">
+        <input class="btn btn--danger" type="submit" value="delete" />
+      </form>
+    </p>
+  </li>
+  <% end %>
+</ul>

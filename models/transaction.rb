@@ -4,8 +4,8 @@ require_relative('./category.rb')
 
 
 class Transaction
-attr_reader :id, :merchant_id, :category_id
-attr_accessor :value
+attr_reader :id
+attr_accessor :merchant_id, :category_id, :value
 
   def initialize(options)
     @id = options['id'].to_i if options['id']
@@ -28,57 +28,54 @@ attr_accessor :value
     @id = results.first()['id'].to_i()
   end
 
-  def self.delete_all()
-    sql = "DELETE FROM transactions"
-    SqlRunner.run(sql)
-  end
-
-  def delete_one()
-    sql = "DELETE FROM transactions WHERE id = $1"
-    values = ['id']
-    SqlRunner.run(sql, values)
-  end
-
-  def update()
-    sql = "UPDATE transactions SET (merchant_id, category_id, value) = ($1, $2, $3) WHERE id = $4"
-    values = [@merchant_id, @category_id, @value]
-    SqlRunner.run(sql, values)
-  end
-
   def self.all()
     sql = "SELECT * FROM transactions"
-    values = []
-    transactions = SqlRunner.run(sql, values)
-    result = transactions.map { |transaction| Transaction.new(transaction) }
-    return result
+    results = SqlRunner.run(sql)
+    return results.map { |transaction| Transaction.new(transaction) }
   end
 
-  def find_by_id()
-    sql = "SELECT * FROM transactions WHERE id = $1"
-    values = ['id']
-    result = SqlRunner.run(sql, values)
-    transaction_hash = results.first
-    transaction = SqlRunner.run(transaction_hash)
-    return transaction
-  end
-
-  def merchant() 
+  def merchant()
     sql = "SELECT * FROM merchants WHERE id = $1"
     values = [@merchant_id]
     results = SqlRunner.run(sql, values)
-    merchant_hash = results[0]
-    merchant = Merchant.new(merchant_hash)
-    return merchant
+    return Merchant.new(results.first)
   end
 
   def category()
     sql = "SELECT * FROM categories WHERE id = $1"
     values = [@category_id]
     results = SqlRunner.run(sql, values)
-    category_hash = results[0]
-    category = Category.new(category_hash)
-    return category
-
+    return Category.new(results.first)
   end
+
+  def self.delete_all()
+    sql = "DELETE FROM transactions"
+    SqlRunner.run(sql)
+  end
+
+  def self.destroy(id)
+    sql = "DELETE FROM transactions WHERE id = $1"
+    values = [id]
+    SqlRunner.run(sql, values)
+  end
+
+
+
+
+
+  # def update()
+  #   sql = "UPDATE transactions SET (merchant_id, category_id, value) = ($1, $2, $3) WHERE id = $4"
+  #   values = [@merchant_id, @category_id, @value, @id]
+  #   SqlRunner.run(sql, values)
+  # end
+  #
+  #
+  # def self.find(id)
+  #   sql = "SELECT * FROM transactions WHERE id = $1"
+  #   values = [id]
+  #   result = SqlRunner.run(sql, values)
+  #   transaction_hash = result.first()
+  #   return Transaction.new(transaction_hash)
+  # end
 
 end
