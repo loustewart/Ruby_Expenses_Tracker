@@ -27,17 +27,18 @@ attr_accessor :type
     SqlRunner.run(sql)
   end
 
-  def delete_one()
+  def delete()
     sql = "DELETE FROM categories WHERE id = $1"
-    values = ['id']
+    values = [@id]
     SqlRunner.run(sql, values)
   end
 
   def update()
-    sql = "UPDATE categories SET (type) = ($1) WHERE id = $2"
-    values = [@type]
+    sql = "UPDATE categories SET type = $1 WHERE id = $2"
+    values = [@type, @id]
     SqlRunner.run(sql, values)
   end
+
 
   def self.all()
     sql = "SELECT * FROM categories"

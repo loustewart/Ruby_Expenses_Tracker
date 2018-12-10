@@ -31,32 +31,31 @@ attr_accessor :name, :phone, :email
     SqlRunner.run(sql)
   end
 
-  def delete_one()
+  def delete()
     sql = "DELETE FORM merchants WHERE id = $1"
-    values = ['id']
+    values = [@id]
     SqlRunner.run(sql, values)
   end
 
   def update()
     sql = "UPDATE merchants SET (name, phone, email) = ($1, $2, $3) WHERE id = $4"
-    values = [@name, @phone, @email]
+    values = [@name, @phone, @email, @id]
     SqlRunner.run(sql, values)
   end
 
   def self.all()
     sql = "SELECT * FROM merchants"
-    values = []
-    merchants = SqlRunner.run(sql, values)
-    result = transactions.map { |merchant| Merchant.new(merchant) }
+    merchants = SqlRunner.run(sql)
+    result = merchants.map { |merchant| Merchant.new(merchant) }
     return result
   end
 
-  def find_by_id()
+  def self.find(id)
     sql = "SELECT * FROM merchants WHERE id = $1"
-    values = ['id']
-    merchants_hash = results.first()
-    merchant = SqlRunner.run(merchants_hash)
-    return merchant
+    values = [id]
+    result = SqlRunner.run(sql, values)
+    merchant_hash = result.first()
+    return Merchant.new(merchant_hash)
   end
 
 end

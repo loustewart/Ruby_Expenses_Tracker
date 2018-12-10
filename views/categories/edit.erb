@@ -1,1 +1,13 @@
 <h1>Edit Category</h1>
+
+<form method="post" action="/categories/<%= @category.id %>">
+  <label for="type-field">Category Type:</label>
+  <input
+  type="text"
+  name="type"
+  id="type-field"
+  value="<%= @category.type %>"
+  />
+
+  <input type='submit' value="Edit Category">
+</form>

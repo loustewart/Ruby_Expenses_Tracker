@@ -1,0 +1,15 @@
+<h1>Edit Merchant</h1>
+
+<form method="post" action="/merchants/<%= @merchant.id %>">
+  <label for="name-field">Merchant name:</label>
+  <input type="text" name="type" id="type-field" value="<%= @merchant.name %>"/>
+
+  <label for="phone-field">Phone:</label>
+  <input type="text" name="phone" id="phone-field" value="<%= @merchant.phone %>"/>
+
+  <label for="email-field">Email:</label>
+  <input type="text" name="email" id="email-field" value="<%= @merchant.email %>"/>
+
+
+  <input type='submit' value="Edit Merchant">
+</form>

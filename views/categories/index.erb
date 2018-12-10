@@ -1,8 +1,14 @@
 <h1>Categories</h1>
 
-
-<% for category in @categories %>
+<% @categories.each do |category| %>
   <p>ID: <%= category.id %></p>
-  <p>Type: <%= category.type %></p>
+  <p>Type: <%= category.type %>
+  <p><a href="/categories/<%= category.id %>/edit">Edit category</a></p>
+
+
+  <form method="post" action="/categories/<%= category.id %>/delete">
+    <input type="submit" value="Delete Category"/>
+  </form>
+
   <hr />
 <% end %>

@@ -1,0 +1,16 @@
+<h1>Merchants</h1>
+
+<% @merchants.each do |merchant| %>
+  <p>ID: <%= merchant.id %></p>
+  <p>Name: <%= merchant.name %>
+  <p>Phone Number: <%= merchant.phone %>
+  <p>Email: <%= merchant.email %>
+  <p><a href="/merchants/<%= merchant.id %>/edit">Edit merchant</a></p>
+
+
+  <form method="post" action="/merchants/<%= merchant.id %>/delete">
+    <input type="submit" value="Delete Merchant"/>
+  </form>
+
+  <hr />
+<% end %>

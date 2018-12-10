@@ -24,29 +24,26 @@ get '/categories/:id' do
   erb(:"categories/show")
 end
 
-
 # EDIT
-# get '/categories/:id/edit' do
-#   @category = Category.find(params[:id])
-#   @categories = Category.all()
-#   @type = ("utilities", "rent", "travel", "admin", "events")
-#   erb(:edit)
-# end
-
+get '/categories/:id/edit' do
+  @category = Category.find(params[:id])
+  erb(:"categories/edit")
+end
 
 # UPDATE
-# post '/categories/:id' do
-#   @category = Category.new(params)
-#   @order.update()
-#   redirect('/categories/index')
-# end
-#
-# # DESTROY
-# post 'categories/:id/delete' do
-#   category = Category.find(params[:id])
-#   category.delete()
-#   redirect('/categories/index')
-# end
+post '/categories/:id' do
+  category = Category.new(params)
+  category.update()
+  redirect to '/categories'
+end
+
+
+# DESTROY
+post '/categories/:id/delete' do
+  category = Category.find(params[:id])
+  category.delete()
+  redirect('/categories')
+end
 
 post '/categories' do # create
   @category = Category.new( params )
