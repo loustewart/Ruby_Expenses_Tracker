@@ -1,25 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Refuweegee Expenses Tracker</title>
+  <title>Expenses Tracker</title>
 
   <link rel="stylesheet" href="/style.css">
-
+  <img src="/images/logo.jpg" alt="logo" WIDTH=250 HEIGHT=200>
 </head>
 
 <body>
-  <div class="Header"> <h1 id='title'>Refuweegee Expenses Tracker</h1>
+  <div class="Header"> <h1 id='title'>Expenses Tracker</h1>
+</div>
 
-  <img src="/images/logo.jpg" alt="logo" WIDTH=350 HEIGHT=300>
 
+  <div class="topnav">
+    <a href="/">Home</a>
+    <a href="/admin">Admin</a>
+    <a href="/transactions">Expenses</a>
   </div>
-
-  <nav>
-    <div><a href="/">Home</a></div>
-    <div><a href="/admin">Admin</a></div>
-    <div><a href="/transactions">Expenses</a></div>
-  </nav>
-
     <%= yield %>
 
 </body>

@@ -13,9 +13,9 @@ attr_accessor :merchant_id, :category_id, :value, :day, :month, :year
     @merchant_id = options['merchant_id'].to_i()
     @category_id = options['category_id'].to_i()
     @value = options['value'].to_f()
-    @day = options['day'].to_s()
-    @month = options['month'].to_s()
-    @year = options['year'].to_s()
+    @day = options['day'].to_i()
+    @month = options['month'].to_i()
+    @year = options['year'].to_i()
   end
 
   def save()
@@ -66,6 +66,12 @@ attr_accessor :merchant_id, :category_id, :value, :day, :month, :year
     SqlRunner.run(sql, values)
   end
 
+  def delete()
+    sql = "DELETE FROM transactions WHERE id = $1"
+    values = [@id]
+    SqlRunner.run(sql, values)
+  end
+
   #
   # def month()
   #   sql = "SELECT * FROM transactions WHERE month = $1"
@@ -75,19 +81,19 @@ attr_accessor :merchant_id, :category_id, :value, :day, :month, :year
 
 
 
-  # def update()
-  #   sql = "UPDATE transactions SET (merchant_id, category_id, value) = ($1, $2, $3) WHERE id = $4"
-  #   values = [@merchant_id, @category_id, @value, @id]
-  #   SqlRunner.run(sql, values)
-  # end
-  #
-  #
-  # def self.find(id)
-  #   sql = "SELECT * FROM transactions WHERE id = $1"
-  #   values = [id]
-  #   result = SqlRunner.run(sql, values)
-  #   transaction_hash = result.first()
-  #   return Transaction.new(transaction_hash)
-  # end
+  def update()
+    sql = "UPDATE transactions SET (merchant_id, category_id, value, day, month, year) = ($1, $2, $3, $4, $5, $6) WHERE id = $7"
+    values = [@merchant_id, @category_id, @value, @day, @month, @year, @id]
+    SqlRunner.run(sql, values)
+  end
+
+
+  def self.find(id)
+    sql = "SELECT * FROM transactions WHERE id = $1"
+    values = [id]
+    result = SqlRunner.run(sql, values)
+    transaction_hash = result.first()
+    return Transaction.new(transaction_hash)
+  end
 
 end

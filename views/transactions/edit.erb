@@ -1,0 +1,47 @@
+<h2>Edit Expense Transaction</h2>
+
+<form method="post" action="/transactions/<%= @transaction.id %>">
+
+  <table id="expenses">
+    <tr>
+      <th>Merchant</th>
+      <th>Category</th>
+      <th>Value</th>
+      <th>Day</th>
+      <th>Month</th>
+      <th>Year</th>
+      <th>Update</th>
+    </tr>
+
+    <label for="merchant_id-field"></label>
+      <input type="hidden" name="merchant_id" id="merchant_id-field" value="<%= @transaction.merchant_id%>"readonly/>
+
+      <label for="category_id-field"></label>
+      <input type="hidden" name="category_id" id="category_id-field" value="<%= @transaction.category_id%>"readonly/>
+
+    <tr>
+      <td>  <label for="merchant-field"></label>
+        <input type="text" name="merchant" id="merchant-field" value="<%= @transaction.merchant.name%>"readonly/></td>
+
+      <td>  <label for="category-field"></label>
+        <input type="text" name="category" id="category-field" value="<%= @transaction.category.type%>"readonly/></td>
+
+      <td>  <label for="value-field"></label>
+        <input type="text" name="value" id="value-field" value="<%= @transaction.value%>"></td>
+
+      <td>  <label for="day-field"></label>
+        <input type="number" name="day" id="day-field" value="<%= @transaction.day %>"></td>
+
+      <td>  <label for="month-field"></label>
+        <input type="number" name="month" id=" month-field" value="<%= @transaction.month %>"></td>
+
+      <td>  <label for="year-field"></label>
+        <input type="text" name="year" id=" year-field" value="<%= @transaction.year%>"></td>
+        <td><input type='submit' value="Update"></td>
+
+    </tr>
+</table>
+
+
+
+</form>

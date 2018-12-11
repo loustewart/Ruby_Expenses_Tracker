@@ -18,7 +18,6 @@ get '/merchants/add' do
   erb(:"merchants/add")
 end
 
-
 # SHOW ONE BY ID
 get '/merchants/:id' do
   @merchant = Merchant.find(params[:id].to_i())
@@ -37,7 +36,6 @@ post '/merchants/:id' do
   merchant.update()
   redirect to '/merchants'
 end
-
 
 # DESTROY
 post '/merchants/:id/delete' do

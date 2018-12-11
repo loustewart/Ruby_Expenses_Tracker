@@ -1,31 +1,56 @@
-<h1>Expenses</h1>
+<!DOCTYPE html>
+<html>
+<head>
+  <h2>Expenses</h2>
+</head>
 
 <p class="btn--wrapper">
-  <a class="btn btn--action" href="/transactions/new">New entry</a>
-</p>
+  <a class="btn btn--action" href="/transactions/new">Add New Entry</a>
+
 
     <% total = 0 %>
     <% for transaction in @transactions %>
     <% total += transaction.value %>
     <%end%>
-<p> Total Expenses: <%= total %></p>
+
+    <p> Total Expenses: £<%= total %></p>
 
 
-<ul>
-  <% for transaction in @transactions %>
-  <li>
-    <p>Expense ID: <%= transaction.id %> </p>
-    <p>Merchant: <%= transaction.merchant.name %> </p>
-    <p>Category: <%= transaction. category.type %> </p>
-    <p>Value: <%= transaction.value %></p>
-    <p>Day: <%= transaction.day %></p>
-    <p>Month: <%= transaction.month %></p>
-    <p>Year: <%= transaction.year %></p>
-<p>
-      <form action="/transactions/<%= transaction.id %>/delete" method="POST">
-        <input class="btn btn--danger" type="submit" value="delete" />
-      </form>
-    </p>
-  </li>
-  <% end %>
-</ul>
+
+
+<body>
+
+  <table id="expenses">
+    <tr>
+      <th>ID</th>
+      <th>Mechant</th>
+      <th>Category</th>
+      <th>Value</th>
+      <th>Day</th>
+      <th>Month</th>
+      <th>Year</th>
+      <th>Edit Transaction</th>
+      <th>Delete Entry</th>
+    </tr>
+<% for transaction in @transactions %>
+    <tr>
+      <td><%= transaction.id %></td>
+      <td><%= transaction.merchant.name%></td>
+      <td><%= transaction.category.type%></td>
+      <td><%= transaction.value %></td>
+      <td><%= transaction.day %></td>
+      <td><%= transaction.month %></td>
+      <td><%= transaction.year %></td>
+      <td>
+        <a href="/transactions/<%= transaction.id %>/edit">Edit</a></td>
+      <td>
+        <form method="post" action="/transactions/<%= transaction.id%>/delete">
+        <input type="submit" value="Delete"/>
+        </form>
+      </td>
+    </tr>
+<% end %>
+  </table>
+
+</body>
+</html>
