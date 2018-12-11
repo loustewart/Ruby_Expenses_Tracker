@@ -1,15 +1,25 @@
-<h1>Edit Merchant</h1>
+<h2>Edit Merchant Details</h2>
 
 <form method="post" action="/merchants/<%= @merchant.id %>">
-  <label for="name-field">Merchant name:</label>
-  <input type="text" name="name" id="type-field" value="<%= @merchant.name %>"/>
 
-  <label for="phone-field">Phone:</label>
-  <input type="text" name="phone" id="phone-field" value="<%= @merchant.phone %>"/>
+  <table class="expenses">
+    <tr>
+      <th>Merchant Name</th>
+      <th>Phone</th>
+      <th>Email</th>
+      <th>Update</th>
+    </tr>
 
-  <label for="email-field">Email:</label>
-  <input type="text" name="email" id="email-field" value="<%= @merchant.email %>"/>
+    <tr>
+      <td><label for="name-field"></label>
+      <input class="input" type="text" name="name" id="type-field" value="<%= @merchant.name %>"></td>
+      <td><label for="phone-field"></label>
+      <input class="input" type="text" name="phone" id="phone-field" value="<%= @merchant.phone %>"></td>
+      <td><label for="email-field"></label>
+      <input class="input" type="text" name="email" id="email-field" value="<%= @merchant.email %>"></td>
+      <td>  <input class="submit" type='submit' value="Update"></td>
+    </tr>
 
+</table>
 
-  <input type='submit' value="Edit Merchant">
 </form>

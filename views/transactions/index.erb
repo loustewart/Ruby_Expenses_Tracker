@@ -4,23 +4,26 @@
   <h2>Expenses</h2>
 </head>
 
+
+<% total = 0 %>
+<% for transaction in @transactions %>
+<% total += transaction.value %>
+<%end%>
+
+<p class="total"> Current Expense Total: £<%= total %></p>
+<p class="budget"> Budget: £700
+
+
+
+
 <p class="btn--wrapper">
-  <a class="btn btn--action" href="/transactions/new">Add New Entry</a>
-
-
-    <% total = 0 %>
-    <% for transaction in @transactions %>
-    <% total += transaction.value %>
-    <%end%>
-
-    <p> Total Expenses: £<%= total %></p>
-
+  <a class="add_new" href="/transactions/new">Add New Entry</a>
 
 
 
 <body>
 
-  <table id="expenses">
+  <table class="expenses">
     <tr>
       <th>ID</th>
       <th>Mechant</th>
@@ -45,7 +48,7 @@
         <a href="/transactions/<%= transaction.id %>/edit">Edit</a></td>
       <td>
         <form method="post" action="/transactions/<%= transaction.id%>/delete">
-        <input type="submit" value="Delete"/>
+        <input class="submit" type="submit" value="Delete"/>
         </form>
       </td>
     </tr>

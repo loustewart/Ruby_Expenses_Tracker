@@ -1,13 +1,21 @@
-<h1>Edit Category</h1>
+<h2>Edit Category</h2>
 
 <form method="post" action="/categories/<%= @category.id %>">
-  <label for="type-field">Category Type:</label>
-  <input
-  type="text"
-  name="type"
-  id="type-field"
-  value="<%= @category.type %>"
-  />
 
-  <input type='submit' value="Edit Category">
+
+  <table class="expenses">
+    <tr>
+      <th>Type</th>
+      <th>Update</th>
+    </tr>
+
+    <tr>
+
+        <td><label for="type-field"</label><input class="input" type="text"
+        name="type" id="type-field" value="<%= @category.type %>"</td>
+
+        <td><input class="submit" type='submit' value="Update"></td>
+    </tr>
+  </table>
+
 </form>

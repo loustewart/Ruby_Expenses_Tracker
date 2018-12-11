@@ -96,4 +96,11 @@ attr_accessor :merchant_id, :category_id, :value, :day, :month, :year
     return Transaction.new(transaction_hash)
   end
 
+
+# define a method to set a budget and return if the total value of the expenses transactions (sum) as greater than or less than the budget (boolean)
+
+# define a method to return only expenses submitted within a specific month (using the integer of the month to return the data)
+
+# define a function to return the expenses for specific catagories and/or merchants using a drop down menu of the category/merchant
+
 end

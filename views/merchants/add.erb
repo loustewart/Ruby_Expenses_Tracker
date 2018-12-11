@@ -1,15 +1,27 @@
-<h1>Add New Merchant</h1>
+<h2>Add New Merchant</h2>
 
 <form method="post" action="/merchants">
-  <label for="name">Merchant name:</label>
-  <input type="text" name="name" id="name-field">
 
-  <label for="phone">Phone number:</label>
-  <input type="text" name="phone" id="phone-field">
+  <table class="expenses">
+    <tr>
+      <th>Merchant Name</th>
+      <th>Phone</th>
+      <th>Email</th>
+      <th>Complete</th>
+    </tr>
 
-  <label for="email">Email:</label>
-  <input type="text" name="email" id="email-field">
+  <tr>
+    <td><label for="name"></label>
+    <input class="input" type="text" name="name" id="name-field"></td>
 
-  <input type="submit" value="Add Merchant">
+    <td><label for="phone"></label>
+    <input class="input" type="text" name="phone" id="phone-field"></td>
+
+    <td><label for="email"></label>
+    <input class="input" type="text" name="email" id="email-field"></td>
+
+    <td><input class="submit" type="submit" value="Add Merchant"></td>
+  </tr>
+</table>
 
 </form>

@@ -1,14 +1,29 @@
-<h1>Categories</h1>
+<!DOCTYPE html>
+<html>
+<head>
+  <h2>Categories</h2>
+</head>
+
+<body>
+
+  <table class="expenses">
+    <tr>
+      <th>ID</th>
+      <th>Type</th>
+      <th>Edit Category</th>
+      <th>Delete Entry</th>
+    </tr>
 
 <% @categories.each do |category| %>
-  <p>ID: <%= category.id %></p>
-  <p>Type: <%= category.type %>
-  <p><a href="/categories/<%= category.id %>/edit">Edit category</a></p>
-
-
-  <form method="post" action="/categories/<%= category.id %>/delete">
-    <input type="submit" value="Delete Category"/>
-  </form>
-
-  <hr />
+    <tr>
+      <td><%= category.id %></td>
+      <td><%= category.type %></td>
+      <td><a href="/categories/<%= category.id %>/edit">Edit category</a></td>
+      <td><form method="post" action="/categories/<%= category.id %>/delete">
+          <input class="submit" type="submit" value="Delete Category"/>
+        </form></td>
+    </tr>
 <% end %>
+  </table>
+</body>
+</html>

@@ -1,16 +1,34 @@
-<h1>Merchants</h1>
+<!DOCTYPE html>
+<html>
+<head>
+  <h2>Merchants</h2>
+</head>
 
+<body>
+
+  <table class="expenses">
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th>Phone Number</th>
+      <th>Email</th>
+      <th>Edit Details</th>
+      <th>Delete Merchant</th>
+    </tr>
 <% @merchants.each do |merchant| %>
-  <p>ID: <%= merchant.id %></p>
-  <p>Name: <%= merchant.name %>
-  <p>Phone Number: <%= merchant.phone %>
-  <p>Email: <%= merchant.email %>
-  <p><a href="/merchants/<%= merchant.id %>/edit">Edit merchant</a></p>
-
-
-  <form method="post" action="/merchants/<%= merchant.id %>/delete">
-    <input type="submit" value="Delete Merchant"/>
-  </form>
-
-  <hr />
+    <tr>
+      <td><%= merchant.id %></td>
+      <td><%= merchant.name %></td>
+      <td><%= merchant.phone %></td>
+      <td><%= merchant.email %></td>
+      <td><a href="/merchants/<%= merchant.id %>/edit">Edit   merchant</a></td>
+      <td><form method="post" action="/merchants/<%= merchant.id %>/delete">
+      <input class="submit" type="submit" value="Delete Merchant"/>
+      </form>
+      </td>
+    </tr>
 <% end %>
+  </table>
+
+</body>
+</html>
