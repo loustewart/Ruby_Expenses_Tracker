@@ -6,6 +6,7 @@ require_relative('../models/category.rb')
 require_relative('../models/merchant.rb')
 require_relative('../models/transaction.rb')
 
+
 get '/transactions' do
   @transactions = Transaction.all()
   erb(:"transactions/index")

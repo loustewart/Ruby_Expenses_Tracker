@@ -3,15 +3,19 @@ require_relative('./merchant.rb')
 require_relative('./category.rb')
 
 
+
 class Transaction
 attr_reader :id
-attr_accessor :merchant_id, :category_id, :value
+attr_accessor :merchant_id, :category_id, :value, :day, :month, :year
 
   def initialize(options)
     @id = options['id'].to_i if options['id']
     @merchant_id = options['merchant_id'].to_i()
     @category_id = options['category_id'].to_i()
     @value = options['value'].to_f()
+    @day = options['day'].to_s()
+    @month = options['month'].to_s()
+    @year = options['year'].to_s()
   end
 
   def save()
@@ -19,11 +23,14 @@ attr_accessor :merchant_id, :category_id, :value
     (
       merchant_id,
       category_id,
-      value
+      value,
+      day,
+      month,
+      year
     )
-    VALUES($1, $2, $3)
+    VALUES($1, $2, $3, $4, $5, $6)
     RETURNING id"
-    values = [@merchant_id, @category_id, @value]
+    values = [@merchant_id, @category_id, @value, @day, @month, @year]
     results = SqlRunner.run(sql, values)
     @id = results.first()['id'].to_i()
   end
@@ -59,7 +66,12 @@ attr_accessor :merchant_id, :category_id, :value
     SqlRunner.run(sql, values)
   end
 
-
+  #
+  # def month()
+  #   sql = "SELECT * FROM transactions WHERE month = $1"
+  #   values = [month]
+  #   SqlRunner.run(sql, values)
+  # end
 
 
 

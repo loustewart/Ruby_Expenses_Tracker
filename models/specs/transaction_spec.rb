@@ -5,7 +5,7 @@ require_relative('../transaction.rb')
 class TransactionTest < MiniTest::Test
 
   def setup()
-    options = {"id" => 1, "merchant_id" => 100, "category_id" => 10, "value" => 300}
+    options = {"id" => 1, "merchant_id" => 100, "category_id" => 10, "value" => 300, "day" => 03, "month" => 11, "year" => 2018}
 
     @transaction = Transaction.new(options)
   end

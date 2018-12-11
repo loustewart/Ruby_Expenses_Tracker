@@ -18,8 +18,11 @@
     <p>Merchant: <%= transaction.merchant.name %> </p>
     <p>Category: <%= transaction. category.type %> </p>
     <p>Value: <%= transaction.value %></p>
+    <p>Day: <%= transaction.day %></p>
+    <p>Month: <%= transaction.month %></p>
+    <p>Year: <%= transaction.year %></p>
 <p>
-      <form expense="/transactions/<%= transaction.id %>/delete" method="POST">
+      <form action="/transactions/<%= transaction.id %>/delete" method="POST">
         <input class="btn btn--danger" type="submit" value="delete" />
       </form>
     </p>

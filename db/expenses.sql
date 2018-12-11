@@ -19,7 +19,10 @@ CREATE TABLE categories
 CREATE TABLE transactions
 (
   id SERIAL primary key,
-  merchant_id INT references merchants(id),
-  category_id INT references categories(id),
-  value DECIMAL(5,2)
+  merchant_id INT references merchants(id) ON DELETE CASCADE,
+  category_id INT references categories(id) ON DELETE CASCADE,
+  value DECIMAL(5,2),
+  day VARCHAR(255),
+  month VARCHAR(255),
+  year VARCHAR(255)
 );

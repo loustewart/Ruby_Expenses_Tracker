@@ -8,8 +8,6 @@ Transaction.delete_all()
 Category.delete_all()
 Merchant.delete_all()
 
-
-
 utilities = Category.new({
   'type' => 'utilities'
   })
@@ -77,6 +75,9 @@ expense1 = Transaction.new({
   'merchant_id' => "#{water.id}",
   'category_id' => "#{utilities.id}",
   'value' => 350.72,
+  'day' => 03,
+  'month' => 11,
+  'year' => 2018,
   })
 expense1.save()
 
@@ -84,6 +85,9 @@ expense2 = Transaction.new({
   'merchant_id' => "#{hampden.id}",
   'category_id' => "#{travel.id}",
   'value' => 12.50,
+  'day' => "06",
+  'month' => "11",
+  'year' => "2018",
   })
 expense2.save()
 
@@ -91,6 +95,9 @@ expense3 = Transaction.new({
   'merchant_id' => "#{briggait.id}",
   'category_id' => "#{rent.id}",
   'value' => 283.00,
+  'day' => "06",
+  'month' => "11",
+  'year' => "2018",
   })
 expense3.save()
 
@@ -98,6 +105,9 @@ expense4 = Transaction.new({
   'merchant_id' => "#{staples.id}",
   'category_id' => "#{admin.id}",
   'value' => 12.50,
+  'day' => "10",
+  'month' => "11",
+  'year' => "2018",
   })
 expense4.save()
 
@@ -105,8 +115,12 @@ expense5 = Transaction.new({
   'merchant_id' => "#{drygate.id}",
   'category_id' => "#{events.id}",
   'value' => 12.50,
+  'day' => "04",
+  'month' => "11",
+  'year' => "2018",
   })
 expense5.save()
+
 
 
 binding.pry
