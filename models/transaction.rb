@@ -94,7 +94,7 @@ attr_accessor :merchant_id, :category_id, :value, :day, :month, :year
 
 # define a function to return the expenses for specific catagories and/or merchants using a drop down menu of the category/merchant
 
-  def filter
+  def search
     sql = "SELECT COUNT(id), month FROM transactions GROUP BY month"
     values = [@id]
     SqlRunner.run(sql, values)
