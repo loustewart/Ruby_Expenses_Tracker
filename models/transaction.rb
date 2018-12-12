@@ -72,15 +72,6 @@ attr_accessor :merchant_id, :category_id, :value, :day, :month, :year
     SqlRunner.run(sql, values)
   end
 
-  #
-  # def month()
-  #   sql = "SELECT * FROM transactions WHERE month = $1"
-  #   values = [month]
-  #   SqlRunner.run(sql, values)
-  # end
-
-
-
   def update()
     sql = "UPDATE transactions SET (merchant_id, category_id, value, day, month, year) = ($1, $2, $3, $4, $5, $6) WHERE id = $7"
     values = [@merchant_id, @category_id, @value, @day, @month, @year, @id]
@@ -102,5 +93,12 @@ attr_accessor :merchant_id, :category_id, :value, :day, :month, :year
 # define a method to return only expenses submitted within a specific month (using the integer of the month to return the data)
 
 # define a function to return the expenses for specific catagories and/or merchants using a drop down menu of the category/merchant
+
+  def filter
+    sql = "SELECT COUNT(id), month FROM transactions GROUP BY month"
+    values = [@id]
+    SqlRunner.run(sql, values)
+  end
+
 
 end

@@ -15,7 +15,7 @@
 
     <tr>
       <td>  <label>
-          <select name="merchant_id">
+          <select class="drop" name="merchant_id">
             <% for merchant in @merchants %>
             <option value="<%= merchant.id %>"><%= merchant.name %> </option>
             <%end %>
@@ -24,7 +24,7 @@
 
       <form action="/transactions" method="post" >
       <td>  <label>
-          <select name="category_id">
+          <select class="drop" name="category_id">
             <% for category in @categories %>
             <option value="<%= category.id %>"><%= category.type %> </option>
             <%end %>

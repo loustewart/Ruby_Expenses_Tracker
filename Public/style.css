@@ -28,11 +28,18 @@ body {
 }
 }
 
-#expenses {
+.drop {
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  width: 150px;
+  height: 25px;
+  background-color: #DDF3F1;}
+
+.expenses {
   color: #333;
   font-family: Helvetica, Arial, sans-serif;
   font-size: 14px;
-  width: 640px;
+  width: 50%;
   border-collapse:
   collapse; border-spacing: 0;
 }
@@ -54,9 +61,7 @@ td {
     font-size: 16px;
 }
 
-
 tr:nth-child(even) td { background: #F1F1F1; }
-
 
 tr:nth-child(odd) td { background: #FEFEFE; }
 
@@ -67,7 +72,7 @@ tr td:hover { background: #666; color: #FFF; }
 .flex-container {
   font-family: Helvetica, Arial, sans-serif;
   font-size: 16px;
-  height: 100vh;
+  height: 30%;
   display: flex;
   flex-direction: row;
 }
